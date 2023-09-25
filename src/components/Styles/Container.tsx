@@ -6,4 +6,5 @@ container
 mx-auto 
 w-[95%]
 lg:w-[90%]   
+bg-gray-100
 `

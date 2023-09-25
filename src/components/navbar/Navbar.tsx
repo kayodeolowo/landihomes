@@ -16,7 +16,7 @@ export default function Header() {
 
   return (
     
-     <Container>
+     <Container className="">
      <div className="justify-between    md:items-center md:flex ">
             <div>
               <div className="flex items-center justify-between py-3 md:py-5 md:block">
