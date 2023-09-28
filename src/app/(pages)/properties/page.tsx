@@ -7,10 +7,17 @@ import { CiLocationOn } from 'react-icons/ci'
 import {FaBath, FaBed} from 'react-icons/fa'
 import React, {useEffect, useState} from "react"
 import { NewReserveType } from "@/types/reserves";
+import Link from "next/link";
+
 
 const Properties = () => {
 
+  const LoadingScreen = () => {
+    return <div>Loading...</div>;
+  };
+
   const [reserve, setReserve]  =  useState <NewReserveType[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(
     () => 
@@ -25,6 +32,7 @@ const Properties = () => {
      };
       })
      );
+     setLoading(false);
     }),
     
    []
@@ -33,20 +41,23 @@ const Properties = () => {
   console.log(reserve, 'hotels');
   return <Container>
 
-    <div className=" sm:flex sm:flex-row space-y-4 sm:space-y-0 gap-10  sm:flex-wrap ">
+    <div className="  ">
 
-      {reserve && reserve.length ? (
-        <div>
-          {
-            reserve?.map((reserve)=>(
-              <div key={reserve.id} className="h-[18rem] sm:w-[15rem] min-w-[15rem] max-w-[18rem]  w-[95%] mx-auto sm:mx-0 shadow-lg rounded-b-lg ">
+    {loading ? (
+    <LoadingScreen />
+  ) : reserve && reserve.length ? (
+    <div className="sm:flex sm:flex-row space-y-4 sm:space-y-0 justify-between gap-5  sm:flex-wrap">
+      {reserve?.map((reserve) => (
+    <div>
+        <Link href={`/detailsreserve/${reserve.id}`} key={reserve.id}>
+        <div  className="h-[18rem] sm:w-[14rem] min-w-[15rem] max-w-[18rem] hover:cursor-pointer hover:shadow-2xl w-[95%] mx-auto sm:mx-0 shadow-md rounded-b-lg ">
               <img src="./images/house.png" alt="apartments" className="h-[9rem] w-full rounded-t-xl" />
-              <div className="pt-4 px-4 bg-white rounded-b-xl">
+              <div className="pt-4 px-2 bg-white rounded-b-xl">
                   <p className="">$23,000 </p>
                   <p> {reserve.country} </p>
-                    <div className="flex flex-row items-center">
+                    <div className="flex text-xs flex-row items-center">
                       <CiLocationOn />
-                      <p className="text-xs"> Thornridge Cir. Shiloh, Hawaii 81223 </p>
+                      <p className=""> Thornridge Shiloh, Hawaii 81223 </p>
     
     
                     </div>
@@ -69,20 +80,18 @@ const Properties = () => {
                         </div>
     
                     </div>
+
+                    
               </div>
           </div>
-            ))
-          }
-          </div>
-      ): (
-        <h1> no rooms </h1>
-      )}
-     
-
-   
-     
-      
+        </Link>
+      </div>
+      ))}
     </div>
+  ) : (
+    <h1>no rooms</h1>
+  )}
+</div>
   </Container>;
 };
 

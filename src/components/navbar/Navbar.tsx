@@ -3,6 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import {BsFillHouseCheckFill} from 'react-icons/bs'
 import { Container } from "../Styles/Container";
+import { BlueBtn } from "../Styles/BlueBtn";
 
 
 export default function Header() {
@@ -91,6 +92,11 @@ export default function Header() {
                     </p>
                   </Link>
 
+                   <Link href='/login'>
+                   <BlueBtn className="px-4">
+                      login
+                    </BlueBtn>
+                   </Link>
                  
                 </ul>
               </div>
