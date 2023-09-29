@@ -3,3 +3,12 @@ export interface NewReserveType {
     country?: string;
     description?: string;
 }
+
+
+export interface PropertyCardProps {
+    reserve: {
+      id?: string;
+      country: string;
+      // Add other properties here as needed
+    }
+  }
