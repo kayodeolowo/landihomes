@@ -1,6 +1,6 @@
 "use client"
 import { Container } from "@/components/Styles/Container";
-import { reservecollection } from "@/lib/controller";
+import { reservecollection } from "../../../firebase/controller";
 import { DocumentData, QuerySnapshot, onSnapshot } from "firebase/firestore";
 import React, { useEffect, useState } from "react"
 import { NewReserveType } from "@/types/reserves";

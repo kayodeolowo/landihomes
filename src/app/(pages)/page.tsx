@@ -1,9 +1,10 @@
 import { Container } from "@/components/Styles/Container";
+import Properties from "./properties/page";
 
 export default function Home() {
   return (
-    <Container className="">
-      <h1 className=" text-black">Home</h1>
-    </Container>
+    <div className="">
+      <h1 className=" text-black"> < Properties/> </h1>
+    </div>
   );
 }

@@ -1,7 +1,7 @@
 "use client"
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
-import { firestore } from "@/lib/controller";
+import { firestore } from "../../../../firebase/controller";
 import { doc, getDoc } from 'firebase/firestore';
 import { Container } from '@/components/Styles/Container';
 import { NewReserveType } from "@/types/reserves";

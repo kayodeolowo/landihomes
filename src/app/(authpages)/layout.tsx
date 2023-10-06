@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google'
 import Navbar from '@/components/navbar/Navbar'
 import Footer from '@/components/footer/Footer'
 import { Container } from '@/components/Styles/Container'
+import { Providers } from '@/redux/provider'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -23,7 +24,7 @@ export default function RootLayout({
       <body className={`${inter.className} `}>
         <Container className="">
           
-          {children}
+        {children}
           {/* <Footer /> */}
         </Container>
       </body>
