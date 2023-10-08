@@ -92,9 +92,9 @@ export default function Header() {
                     </p>
                   </Link>
 
-                   <Link href='/login'>
+                   <Link href='/signin'>
                    <BlueBtn className="px-4">
-                      login
+                      signin
                     </BlueBtn>
                    </Link>
                  
