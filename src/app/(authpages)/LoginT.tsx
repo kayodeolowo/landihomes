@@ -1,11 +1,12 @@
 import React from 'react';
+import {getAuth, signInWithEmailAndPassword} from "firebase/auth"
 import Form from "../../components/Form";
 import { useDispatch } from 'react-redux';
-import {getAuth, signInWithEmailAndPassword} from "firebase/auth"
 import {setUser} from '../../redux/features/userSlice'
+import { useRouter } from 'next/navigation';
 
 const LoginT: React.FC = () => {
-  
+    const router = useRouter();
     const dispatch = useDispatch();
 
     const handleLogin = (email: string, password: string) => {
@@ -16,9 +17,9 @@ const LoginT: React.FC = () => {
                 dispatch(setUser({
                     email: user.email,
                     id: user.uid,
-                     token: user.accesstoken,
+                    token: user.accessToken,
                 }));
-                
+                router.push('/properties');
             })
             .catch(console.error);
     };

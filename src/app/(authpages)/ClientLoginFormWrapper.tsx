@@ -2,6 +2,7 @@
 import { Providers } from '@/redux/provider'
 import React from 'react'
 import LoginT from './LoginT'
+import SignUpT from './SignupT'
 
 const ClientLoginFormWrapper = () => {
   return (
