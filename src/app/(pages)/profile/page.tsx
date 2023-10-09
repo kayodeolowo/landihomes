@@ -3,13 +3,17 @@ import React from 'react'
 import { useRouter } from 'next/navigation';
 import { Container } from '@/components/Styles/Container';
 
+declare global {
+  interface Window {
+    localStorage: Storage;
+  }
+}
 
 const Profile = () => {
    
     const router = useRouter();
   
     const handleLogout = () => {
-       
         localStorage.clear();
         router.push('/signin');
       };
