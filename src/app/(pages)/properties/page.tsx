@@ -3,7 +3,7 @@ import { Container } from "@/components/Styles/Container";
 import { reservecollection } from "../../../firebase/controller";
 import { DocumentData, QuerySnapshot, onSnapshot } from "firebase/firestore";
 import React, { useEffect, useState } from "react"
-import { NewReserveType } from "@/types/reserves";
+import { PropertyCardProps } from "@/types/reserves";
 import PropertyCard from "@/components/cards/PropertyCard";
 
 
@@ -13,17 +13,18 @@ const Properties = () => {
     return <div>Loading...</div>;
   };
 
-  const [reserve, setReserve] = useState<NewReserveType[]>([]);
+  const [properties, setProperties] = useState<PropertyCardProps[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(
     () =>
       onSnapshot(reservecollection, (snapshot:
         QuerySnapshot<DocumentData>) => {
-        setReserve(
+        setProperties(
           snapshot.docs.map((doc) => {
             return {
               id: doc.id,
+              country: 'Some Country',
               ...doc.data(),
             };
           })
@@ -34,17 +35,17 @@ const Properties = () => {
     []
   );
 
-  console.log(reserve, 'hotels');
+  console.log(properties, 'hotels');
 
   return (
     <Container>
       <div className=" ">
         {loading ? (
           <LoadingScreen />
-        ) : reserve && reserve.length ? (
+        ) : properties && properties.length ? (
           <div className="sm:flex sm:flex-row space-y-4 sm:space-y-0 justify-between gap-5 sm:flex-wrap">
-            {reserve?.map((reserve) => (
-              <PropertyCard key={reserve.id} reserve={reserve} />
+            {properties?.map((properties) => (
+              <PropertyCard key={properties.id} reserve={properties} />
             ))}
           </div>
         ) : (

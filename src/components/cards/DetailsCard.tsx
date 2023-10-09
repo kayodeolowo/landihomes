@@ -1,9 +1,9 @@
 // DetailsSection.tsx
 import React from 'react';
-import { NewReserveType } from "@/types/reserves";
+import { PropertyCardProps} from "@/types/reserves";
 
 interface DetailsSectionProps {
-  reserve: NewReserveType;
+  reserve: PropertyCardProps;
 }
 
 const DetailsCard: React.FC<DetailsSectionProps> = ({ reserve }) => {

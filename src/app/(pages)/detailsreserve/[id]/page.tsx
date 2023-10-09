@@ -4,14 +4,14 @@ import { useParams } from 'next/navigation';
 import { firestore } from "../../../../firebase/controller";
 import { doc, getDoc } from 'firebase/firestore';
 import { Container } from '@/components/Styles/Container';
-import { NewReserveType } from "@/types/reserves";
+import {  PropertyCardProps } from "@/types/reserves";
 import DetailsCard from '@/components/cards/DetailsCard';
 
 const Details = () => {
     const { id } = useParams();
     const getReserve = doc(firestore, `reserve/${id}`);
     const [isLoading, setIsLoading] = useState(false);
-    const [reserve, setReserve] = useState<NewReserveType | null>(null);
+    const [reserve, setReserve] = useState<PropertyCardProps | null>(null);
 
     useEffect(() => {
         const fetchReserveData = async () => {
@@ -20,6 +20,7 @@ const Details = () => {
             if (docSnap.exists()) {
                 const newReserveObj = {
                     id: docSnap.id,
+                    country: 'Some Country', 
                     ...docSnap.data(),
                 };
                 setReserve(newReserveObj);
