@@ -4,10 +4,13 @@ import Link from "next/link";
 import {BsFillHouseCheckFill} from 'react-icons/bs'
 import { Container } from "../Styles/Container";
 import { BlueBtn } from "../Styles/BlueBtn";
+import { useAuth } from "@/redux/useAuth";
 
 
 export default function Header() {
   const [navbar, setNavbar] = useState<boolean>(false);
+  const {isAuth, email} = useAuth();
+  
 
 
   const handleNav = () => {
@@ -92,11 +95,24 @@ export default function Header() {
                     </p>
                   </Link>
 
-                   <Link href='/signin'>
-                   <BlueBtn className="px-4">
-                      signin
-                    </BlueBtn>
-                   </Link>
+                  {isAuth ? (
+                // If user is authenticated, display profile
+                <div>  
+
+                  <Link href='/profile'>
+                  <BlueBtn onClick={handleNav} className="px-4">
+                Profile
+              </BlueBtn> 
+                  </Link>
+                </div>
+              ) : (
+                // If user is not authenticated, display sign in button
+                <Link href='/signin'>
+                  <BlueBtn className="px-4">
+                    Sign In
+                  </BlueBtn>
+                </Link>
+              )}
                  
                 </ul>
               </div>
