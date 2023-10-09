@@ -40,13 +40,14 @@ const SignUpT: React.FC<SignUpProps> = () => {
                 dispatch(setUser({
                     email: user.email,
                     id: user.uid, // Assuming user.id is the unique identifier
-                    token: user.accessToken,
+                    //token: user.accessToken,
                 }));
                 router.push('/properties');
                 toast.success('Signed up Successfully, Welcome');
             })
             .catch(error => {
                 console.error(error);
+                toast.error('SignUp failed. Email Already exist');
             })
             .finally(() => {
                 setLoading(false);

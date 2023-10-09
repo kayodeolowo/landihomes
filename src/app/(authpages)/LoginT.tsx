@@ -41,7 +41,7 @@ const LoginT: React.FC<FormProps> = ({ title }) => {
                 dispatch(setUser({
                     email: user.email || '',
                     id: user.uid,
-                    token: user.accessToken || '',
+                    //token: user.accessToken || '',
                 }));
                 router.push('/properties');
                 toast.success(`Welcome back, ${user.email}!`);
