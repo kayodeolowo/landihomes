@@ -4,9 +4,12 @@ import { BsTextarea } from 'react-icons/bs';
 import Link from 'next/link';
 import { PropertyCardProps } from '@/types/reserves';
 
+interface DetailsSectionProps {
+  reserve: PropertyCardProps;
+}
 
 
-const PropertyCard: React.FC<PropertyCardProps> = ({ reserve }) => {
+const PropertyCard: React.FC<DetailsSectionProps> = ({ reserve }) => {
     
   return (
     <div className="h-[18rem] sm:w-[14rem] min-w-[15rem] max-w-[18rem] hover:cursor-pointer hover:shadow-2xl w-[95%] mx-auto sm:mx-0 shadow-md rounded-b-lg">
