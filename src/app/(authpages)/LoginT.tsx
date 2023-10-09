@@ -12,11 +12,9 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from 'react-toastify';
 
-interface FormProps {
-    title: string;
-}
 
-const LoginT: React.FC<FormProps> = ({ title }) => {
+
+const LoginT: React.FC = () => {
     const router = useRouter();
     const dispatch = useDispatch();
 
