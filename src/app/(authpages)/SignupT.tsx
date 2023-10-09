@@ -40,6 +40,7 @@ const SignUpT: React.FC<SignUpProps> = () => {
                 dispatch(setUser({
                     email: user.email,
                     id: user.uid, // Assuming user.id is the unique identifier
+                    
                     //token: user.accessToken,
                 }));
                 router.push('/properties');
