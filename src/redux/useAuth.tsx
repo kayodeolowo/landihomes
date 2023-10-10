@@ -8,10 +8,12 @@ export function useAuth() {
     let id: string | null = user.id;
 
     // Check local storage if user is not in Redux state
-    if (!token && localStorage.getItem('authToken')) {
-        token = localStorage.getItem('authToken')!;
-        email = localStorage.getItem('authEmail')!;
-        // id = localStorage.getItem('authId')!;
+    if (typeof window !== 'undefined') {
+        if (!token && window.localStorage.getItem('authToken')) {
+            token = window.localStorage.getItem('authToken')!;
+            email = window.localStorage.getItem('authEmail')!;
+            // id = window.localStorage.getItem('authId')!;
+        }
     }
 
     return {

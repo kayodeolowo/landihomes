@@ -1,15 +1,13 @@
 
 import React from 'react';
-import  Link  from 'next/link';
-import ClientSignUpFormWrapper from '../ClientSignUpFormWrapper';
+import { Providers } from '@/redux/provider';
+import SignUpT from '../SignupT';
 
 const RegisterPage = () => {
   return (
-    <div>
-       
-       <ClientSignUpFormWrapper/>
-      
-    </div>
+    <Providers>
+      <SignUpT/>
+    </Providers>
   )
 }
 

@@ -1,5 +1,5 @@
+"use client"
 import { getAuth, createUserWithEmailAndPassword, User } from "firebase/auth";
-import Form from "../../components/Form";
 import { useDispatch } from 'react-redux';
 import { setUser } from '../../redux/features/userSlice';
 import { useRouter } from 'next/navigation';

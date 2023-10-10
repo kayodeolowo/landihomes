@@ -1,16 +1,15 @@
-
+"use client"
 import React from 'react';
-import  Link  from 'next/link';
 import LoginT from '@/app/(authpages)/LoginT';
-import ClientLoginFormWrapper from '../ClientLoginFormWrapper';
+import { Providers } from '@/redux/provider';
 
 
 
 const Signin = () => {
   return (
-    <div>
-       <ClientLoginFormWrapper/>
-    </div>
+    <Providers>
+      <LoginT/>
+    </Providers>
   )
 }
 
