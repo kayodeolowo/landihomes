@@ -36,7 +36,7 @@ const ProfileDropdown = () => {
             </Link>
 
             
-            <li onClick={handleLogout} className="py-2 px-4 cursor-pointer hover:bg-gray-100"> Sign Out</li>
+            <li onClick={handleLogout} className="py-2 px-4 cursor-pointer hover:bg-gray-100"> <span onClick={toggleDropdown}> Sign Out </span></li>
             
           </ul>
         </div>

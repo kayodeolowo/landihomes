@@ -1,11 +1,14 @@
+"use client"
 import React from 'react'
+import { withAuth } from '../../../redux/withAuth'
 
-const Bookings = () => {
+
+const Bookings: React.FC = () => {
   return (
     <div>
-      book
+     <h1> hello </h1>
     </div>
   )
 }
 
-export default Bookings
+export default withAuth({Component:Bookings})

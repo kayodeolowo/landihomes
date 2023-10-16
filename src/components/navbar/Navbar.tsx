@@ -23,8 +23,7 @@ export default function Header() {
 
     <Container className="">
       <div className="justify-between    md:items-center md:flex ">
-        <div>
-          <div className="flex items-center justify-between py-3 md:py-5 md:block">
+      <div className="flex items-center justify-between py-3 md:py-5 md:block">
             <div className=' hover:cursor-pointer flex flex-row    items-center'>
               <Link href='/'>
                 <h1 className=' text-lg md:text-[1.5rem]   font-semibold text-black flex items-center '> LandiHomes <span> <BsFillHouseCheckFill /> </span> </h1>
@@ -81,7 +80,6 @@ export default function Header() {
               </button>
             </div>
           </div>
-        </div>
         <div>
           <div
             className={`flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${navbar ? "block" : "hidden"
